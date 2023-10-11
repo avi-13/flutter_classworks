@@ -7,7 +7,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutte_App',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter_App',
       initialRoute: AppRoutes.dashboardRoute,
       routes: AppRoutes.getApplicationRoute(),
     );
