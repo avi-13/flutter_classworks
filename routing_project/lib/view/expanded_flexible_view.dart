@@ -9,22 +9,61 @@ class ExpandedFlexibleView extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            Container(
-              // height: MediaQuery.of(context).size.height * .5,
-              height: 200,
-              color: Colors.amber,
+            Expanded(
+              flex: 1,
+              child: GestureDetector(
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Hello World"),
+                      duration: Duration(seconds: 3),
+                    ),
+                  );
+                },
+                child: GestureDetector(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Hello World"),
+                        duration: Duration(seconds: 3),
+                      ),
+                    );
+                  },
+                  child: GestureDetector(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Hello World"),
+                          duration: Duration(seconds: 3),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    },
+                    child: Container(
+                      // height: MediaQuery.of(context).size.height * .5,
+                      // height: 200,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
             ),
-            Flexible(  // overflow hunna aru add garyo vaney aafai milera basxa 
-              fit: FlexFit.tight, // occupy all the available spaces
+            Expanded(
+              flex: 2,
+              // Flexible(  // overflow hunna aru add garyo vaney aafai milera basxa
+              // fit: FlexFit.tight, // occupy all the available spaces
               child: Container(
-                height: 500,
                 color: Colors.blueAccent,
-            
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                color: Colors.greenAccent,
               ),
             ),
           ],
         ),
-        
       ),
     );
   }
