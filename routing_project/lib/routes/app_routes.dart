@@ -1,4 +1,3 @@
-
 import 'package:routing_project/view/airthematic_view.dart';
 import 'package:routing_project/view/container_view.dart';
 import 'package:routing_project/view/dashboard_view.dart';
@@ -7,6 +6,7 @@ import 'package:routing_project/view/game_output.dart';
 import 'package:routing_project/view/image_view.dart';
 import 'package:routing_project/view/output_view.dart';
 import 'package:routing_project/view/random_game.dart';
+import 'package:routing_project/view/rows_and_columns_view.dart';
 
 class AppRoutes {
    AppRoutes._(); // private constructor cannot use without its name
@@ -20,6 +20,7 @@ class AppRoutes {
    static const String hello = "/hello";
    static const String imgg = "/img";
    static const String expanded = "/expanded";
+   static const String rowcol = "/rowcol";
 
    static getApplicationRoute(){
     return {
@@ -31,6 +32,7 @@ class AppRoutes {
       hello : (context) => const ContainerView(),
       imgg : (context) => const ImageView(),
       expanded : (context) => const ExpandedFlexibleView(),
+      rowcol : (context) => const RowsAndColumnView(),
     };
    }
 }
