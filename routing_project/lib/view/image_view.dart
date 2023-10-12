@@ -5,10 +5,26 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Image.asset('/assets/images/img.jpg'),
+    return const SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage("assets/images/img1.jpg"),
+              ),
+              // Image.asset('assets/images/patan.png'),
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              // Image.asset('assets/images/img1.jpg'),
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              // Image.asset('assets/images/img2.jpg'),
+            ],
+          ),
         ),
       ),
     );

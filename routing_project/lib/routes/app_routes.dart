@@ -2,6 +2,7 @@
 import 'package:routing_project/view/airthematic_view.dart';
 import 'package:routing_project/view/container_view.dart';
 import 'package:routing_project/view/dashboard_view.dart';
+import 'package:routing_project/view/expanded_flexible_view.dart';
 import 'package:routing_project/view/game_output.dart';
 import 'package:routing_project/view/image_view.dart';
 import 'package:routing_project/view/output_view.dart';
@@ -18,6 +19,7 @@ class AppRoutes {
    static const String gameOver = "/output";
    static const String hello = "/hello";
    static const String imgg = "/img";
+   static const String expanded = "/expanded";
 
    static getApplicationRoute(){
     return {
@@ -28,6 +30,7 @@ class AppRoutes {
       outputGame : (context) => const GameOutput(),
       hello : (context) => const ContainerView(),
       imgg : (context) => const ImageView(),
+      expanded : (context) => const ExpandedFlexibleView(),
     };
    }
 }

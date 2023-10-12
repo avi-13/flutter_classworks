@@ -9,7 +9,7 @@ class ContainerView extends StatelessWidget {
       body: SafeArea(
         child: Container(
           alignment: Alignment.centerRight,
-          child: const Text("Hello WOrld"),
+          child: const Text("Hello World"),
         ),
       ),
       // child: Center(
