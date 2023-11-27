@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routing_project/app/common/display_student.dart';
 import 'package:routing_project/model/student.dart';
 
 class StudentDetails extends StatefulWidget {
@@ -26,7 +27,9 @@ class _AtithmeticViewState extends State<StudentDetails> {
 
   List<Student> lstStudent = [];
   void _addStudentToList(Student student) {
-    lstStudent.add(student);
+    setState(() {
+      lstStudent.add(student);
+    });
   }
 
   @override
@@ -174,6 +177,11 @@ class _AtithmeticViewState extends State<StudentDetails> {
                       child: const Text('Display Students'),
                     ),
                   ),
+
+                  Expanded(
+                      child: DisplayStudent(
+                    listStudents: lstStudent,
+                  )),
                 ],
               ),
             ),
