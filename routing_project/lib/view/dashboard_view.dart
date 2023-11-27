@@ -62,6 +62,12 @@ class DashboardView extends StatelessWidget {
                 },
                 child: const Text("RowAndColumn"),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.student);
+                },
+                child: const Text("Students Details"),
+              ),
             ],
           ),
         ),
