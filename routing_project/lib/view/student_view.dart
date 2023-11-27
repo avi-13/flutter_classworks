@@ -23,7 +23,7 @@ class _StudentViewState extends State<StudentView> {
                   return ListTile(
                     title: Text(
                         '${student[index].fname!} ${student[index].address!}'),
-                    subtitle: Text(student[index].address!),
+                    subtitle: Text(student[index].city!),
                     trailing: Wrap(
                       children: [
                         IconButton(
