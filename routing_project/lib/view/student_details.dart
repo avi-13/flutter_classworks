@@ -41,149 +41,147 @@ class _AtithmeticViewState extends State<StudentDetails> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: SingleChildScrollView(
-            child: Form(
-              key: key,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextFormField(
-                    controller: fName,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please Enter a value";
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      labelText: 'First Name',
-                    ),
+          child: Form(
+            key: key,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: fName,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter a value";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'First Name',
                   ),
-                  TextFormField(
-                    controller: lName,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please Enter a value";
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      labelText: 'Last Name',
-                    ),
+                ),
+                TextFormField(
+                  controller: lName,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter a value";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Last Name',
                   ),
-                  const Text('Select Gender:'),
-                  ListTile(
-                    title: const Text('Male'),
-                    leading: Radio(
-                      value: 'Male',
-                      groupValue: selectedGender,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedGender = value as String;
-                        });
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Female'),
-                    leading: Radio(
-                      value: 'Female',
-                      groupValue: selectedGender,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedGender = value as String;
-                        });
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Other'),
-                    leading: Radio(
-                      value: 'Other',
-                      groupValue: selectedGender,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedGender = value as String;
-                        });
-                      },
-                    ),
-                  ),
-                  TextFormField(
-                    controller: age,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please Enter a value";
-                      } else if (int.tryParse(value) == null) {
-                        return "Cannot be alphabet";
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      labelText: 'Age',
-                    ),
-                  ),
-
-                  DropdownButtonFormField(
-                    items: items,
+                ),
+                const Text('Select Gender:'),
+                ListTile(
+                  title: const Text('Male'),
+                  leading: Radio(
+                    value: 'Male',
+                    groupValue: selectedGender,
                     onChanged: (value) {
                       setState(() {
-                        city = value;
+                        selectedGender = value as String;
                       });
                     },
-                    hint: const Text('Select City'),
-                    decoration: const InputDecoration(
-                      labelText: "Select a address",
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value == null) {
-                        return 'Please Select a city';
-                      }
-                      return null;
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Female'),
+                  leading: Radio(
+                    value: 'Female',
+                    groupValue: selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedGender = value as String;
+                      });
                     },
                   ),
-                  // TextDropdownFormField(
-                  //     controller: _dropdowncontroller, options: cities),
-
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (key.currentState!.validate()) {
-                          Student student = Student(
-                            fname: fName.text,
-                            lname: lName.text,
-                            gender: selectedGender,
-                            age: int.parse(age.text),
-                            city: city,
-                            address: address.text,
-                          );
-                          _addStudentToList(student);
-                          debugPrint(lstStudent.length.toString());
-                          Navigator.pushNamed(context, '/studentv',
-                              arguments: lstStudent);
-                        }
-                      },
-                      child: const Text('Save Students'),
-                    ),
+                ),
+                ListTile(
+                  title: const Text('Other'),
+                  leading: Radio(
+                    value: 'Other',
+                    groupValue: selectedGender,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedGender = value as String;
+                      });
+                    },
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/studentv",
+                ),
+                TextFormField(
+                  controller: age,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter a value";
+                    } else if (int.tryParse(value) == null) {
+                      return "Cannot be alphabet";
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Age',
+                  ),
+                ),
+
+                DropdownButtonFormField(
+                  items: items,
+                  onChanged: (value) {
+                    setState(() {
+                      city = value;
+                    });
+                  },
+                  hint: const Text('Select City'),
+                  decoration: const InputDecoration(
+                    labelText: "Select a address",
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Please Select a city';
+                    }
+                    return null;
+                  },
+                ),
+                // TextDropdownFormField(
+                //     controller: _dropdowncontroller, options: cities),
+
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (key.currentState!.validate()) {
+                        Student student = Student(
+                          fname: fName.text,
+                          lname: lName.text,
+                          gender: selectedGender,
+                          age: int.parse(age.text),
+                          city: city,
+                          address: address.text,
+                        );
+                        _addStudentToList(student);
+                        debugPrint(lstStudent.length.toString());
+                        Navigator.pushNamed(context, '/studentv',
                             arguments: lstStudent);
-                      },
-                      child: const Text('Display Students'),
-                    ),
+                      }
+                    },
+                    child: const Text('Save Students'),
                   ),
-
-                  Expanded(
-                      child: DisplayStudent(
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/studentv",
+                          arguments: lstStudent);
+                    },
+                    child: const Text('Display Students'),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: DisplayStudent(
                     listStudents: lstStudent,
-                  )),
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
