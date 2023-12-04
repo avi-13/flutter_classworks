@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routing_project/app/snackbar/snackbar.dart';
 
 import '../../model/student.dart';
 
@@ -14,17 +15,34 @@ class DisplayStudent extends StatelessWidget {
         separatorBuilder: (context, index) => const Divider(),
         itemCount: listStudents.length,
         itemBuilder: (BuildContext context, int index) {
-          return SizedBox(
-            height: 80,
-            width: double.infinity,
-            child: Card(
-              color: Colors.yellow,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Text(
-                    '${listStudents.elementAt(index).fname!} ${listStudents.elementAt(index).lname!}'),
+          return GestureDetector(
+            // can drag the card also but inkwell is used for effects and sounds
+            onTap: () {
+              showMySnackBar(
+                  message: "${listStudents.elementAt(index).fname} is clicked",
+                  context: context);
+            },
+            onDoubleTap: () {
+              showMySnackBar(
+                  message:
+                      "${listStudents.elementAt(index).fname} is clicked two times",
+                  context: context,
+                  color: Colors.blue);
+            },
+            child: SizedBox(
+              height: 80,
+              width: double.infinity,
+              child: Card(
+                color: Colors.deepOrange,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    '${listStudents.elementAt(index).fname!} ${listStudents.elementAt(index).lname!} \n ${listStudents.elementAt(index).city!}',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
             ),
           );

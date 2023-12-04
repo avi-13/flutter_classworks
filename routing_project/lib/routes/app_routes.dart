@@ -3,6 +3,7 @@ import 'package:routing_project/view/container_view.dart';
 import 'package:routing_project/view/dashboard_view.dart';
 import 'package:routing_project/view/expanded_flexible_view.dart';
 import 'package:routing_project/view/game_output.dart';
+import 'package:routing_project/view/grid_view_view.dart';
 import 'package:routing_project/view/image_view.dart';
 import 'package:routing_project/view/output_view.dart';
 import 'package:routing_project/view/random_game.dart';
@@ -25,6 +26,7 @@ class AppRoutes {
   static const String rowcol = "/rowcol";
   static const String student = "/student";
   static const String studentv = "/studentv";
+  static const String grid = "/grid";
 
   static getApplicationRoute() {
     return {
@@ -39,6 +41,7 @@ class AppRoutes {
       rowcol: (context) => const RowsAndColumnView(),
       student: (context) => const StudentDetails(),
       studentv: (context) => const StudentView(),
+      grid: (context) => const GridViewView(),
     };
   }
 }
