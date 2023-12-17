@@ -86,6 +86,15 @@ class DashboardView extends StatelessWidget {
                   child: const Text("Students Details"),
                 ),
               ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.dTime);
+                  },
+                  child: const Text("Date And Time"),
+                ),
+              ),
             ],
           ),
         ),
