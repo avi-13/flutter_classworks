@@ -1,11 +1,11 @@
 import 'package:routing_project/view/airthematic_view.dart';
 import 'package:routing_project/view/container_view.dart';
-import 'package:routing_project/view/dashboard_view.dart';
 import 'package:routing_project/view/date_and_time.dart';
 import 'package:routing_project/view/expanded_flexible_view.dart';
 import 'package:routing_project/view/game_output.dart';
 import 'package:routing_project/view/grid_view_view.dart';
 import 'package:routing_project/view/image_view.dart';
+import 'package:routing_project/view/map_test.dart';
 import 'package:routing_project/view/output_view.dart';
 import 'package:routing_project/view/random_game.dart';
 import 'package:routing_project/view/rows_and_columns_view.dart';
@@ -34,7 +34,7 @@ class AppRoutes {
 
   static getApplicationRoute() {
     return {
-      dashboardRoute: (context) => const DashboardView(),
+      dashboardRoute: (context) => const MapTest(),
       outputRoute: (context) => const OutputView(),
       airthmaticRoute: (context) => const AtithmeticView(),
       games: (context) => const RandomGame(),

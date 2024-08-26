@@ -10,7 +10,7 @@ class App extends StatelessWidget {
       theme: ThemeData(useMaterial3: false),
       debugShowCheckedModeBanner: false,
       title: 'Flutter_App',
-      initialRoute: '/splashScreen',
+      initialRoute: '/',
       routes: AppRoutes.getApplicationRoute(),
     );
   }
